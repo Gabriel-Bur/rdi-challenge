@@ -1,26 +1,32 @@
-﻿using System;
+﻿using RDI.Api.Entities.Base;
+using System;
 
 namespace RDI.Api.Entities
 {
-    public class Card
+    public class Card : Auditable
     {
         public int CardId { get; set; }
         public long CardNumber { get; set; }
         public int CVV { get; set; }
-        public Customer CardOwner { get; set; }
+
+        public Customer CustomerCardOwner { get; set; }
+        public int CustomerId { get; set; }
         
-        internal Card()
-        {
+        internal Card() {}
 
-        }
-
-        public Card(long cardNumber,
+        public Card(
+            long cardNumber,
             int cvv,
-            Customer cardOwner)
+            int customerId)
         {
             CardNumber = cardNumber;
             CVV = cvv;
-            CardOwner = cardOwner;
+            setCardOwner(customerId);
+        }
+
+        private void setCardOwner(int customerId)
+        {
+            CustomerCardOwner = new Customer(customerId);
         }
     }
 }
