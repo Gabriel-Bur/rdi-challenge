@@ -11,9 +11,6 @@ namespace RDI.Api.Context.ModelBuilder
         {
             builder
                 .HasKey(p => p.CardId);
-
-            builder
-                .HasAlternateKey(p => new { p.CardNumber, p.CustomerId});
         }
     }
 }

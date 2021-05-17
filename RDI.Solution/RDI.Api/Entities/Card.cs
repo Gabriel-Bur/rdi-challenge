@@ -1,5 +1,4 @@
 ﻿using RDI.Api.Entities.Base;
-using System;
 
 namespace RDI.Api.Entities
 {
@@ -9,10 +8,10 @@ namespace RDI.Api.Entities
         public long CardNumber { get; set; }
         public int CVV { get; set; }
 
-        public Customer CustomerCardOwner { get; set; }
+        public Customer Customer { get; set; }
         public int CustomerId { get; set; }
         
-        internal Card() {}
+        protected Card() { }
 
         public Card(
             long cardNumber,
@@ -26,7 +25,7 @@ namespace RDI.Api.Entities
 
         private void setCardOwner(int customerId)
         {
-            CustomerCardOwner = new Customer(customerId);
+            Customer = new Customer(customerId);
         }
     }
 }

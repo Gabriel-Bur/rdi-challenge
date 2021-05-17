@@ -6,6 +6,10 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using RDI.Api.Context;
+using RDI.Api.Interfaces;
+using RDI.Api.Services;
+using RDI.Api.Services.Interfaces;
+using RDI.Api.Token;
 
 namespace RDI.Api
 {
@@ -29,6 +33,10 @@ namespace RDI.Api
 
             services
                 .AddDbContext<RDIContextDb>(builder => builder.UseInMemoryDatabase("RDIDatabase"));
+
+            services.AddScoped<ICardService, CardService>();
+            services.AddScoped<IValidateService, ValidateService>();
+            services.AddSingleton<TokenGenerator>();
 
         }
 

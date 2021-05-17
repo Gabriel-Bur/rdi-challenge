@@ -23,8 +23,8 @@ namespace RDI.Api.Context
 
         protected override void OnModelCreating(Microsoft.EntityFrameworkCore.ModelBuilder modelBuilder)
         {
-            modelBuilder.ApplyConfiguration(new CardModelBuilder());
-            modelBuilder.ApplyConfiguration(new CustomerModelBuilder());
+            //modelBuilder.ApplyConfiguration(new CardModelBuilder());
+            //modelBuilder.ApplyConfiguration(new CustomerModelBuilder());
         }
 
         public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
